@@ -4,14 +4,29 @@
       <h3>this is Once of chat</h3>
     </div>
     <div class="content">
-      
+      <ul>
+        <li>this is broadcast</li>
+        <li>this is message recivced</li>
+        <li v-for="(item, index) in messagesHistory" :key="index">this is message sent {{item.content}}</li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'history'
+  name: 'history',
+  props:{
+    messagesHistory: {
+      type: Array,
+      required: true
+    }
+  },
+  data() {
+    return {
+      aa: "ss"
+    }
+  }
 }
 </script>
 
