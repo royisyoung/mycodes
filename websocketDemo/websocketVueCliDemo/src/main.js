@@ -4,15 +4,18 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import History from './components/history.vue'
-import Input from './components/input.vue'
+import Historya from './components/history.vue'
+import InputDia from './components/input.vue'
 
 Vue.config.productionTip = false
+
+Vue.component('x-history', Historya);
+Vue.component('x-input', InputDia);
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App, History, Input }
+  components: { App }
 })
