@@ -34,10 +34,33 @@ export default {
     
   },
   methods: {
-    sendMsgHanlde: () => {
-      
-    }
-  }
+    sendMsgHanlde: function() {
+      console.log(this);
+    },
+    add() {
+		  this.$socket.emit("add", { a: 5, b: 3 });
+		},
+		get() {
+		  this.$socket.emit("get", { id: 12 }, (response) => {
+		  });
+		}
+  },
+  socket: {
+			events: {
+				changed(msg) {
+					console.log("Something changed: " + msg);
+				},
+				connect() {
+					console.log("Websocket connected to " + this.$socket.nsp);
+				},
+				disconnect() {
+					console.log("Websocket disconnected from " + this.$socket.nsp);
+				},
+				error(err) {
+					console.error("Websocket error!", err);
+				}
+			}
+		}
 }
 </script>
 

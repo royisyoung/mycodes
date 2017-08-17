@@ -5,7 +5,8 @@ import App from './App'
 import router from './router'
 
 import VueWebsocket from "vue-websocket";
-Vue.use(VueWebsocket);
+// Vue.use(VueWebsocket, "ws://10.8.97.26:8088");
+Vue.use(VueWebsocket, "ws://10.8.97.13:8000");
 
 import Historya from './components/history.vue'
 import InputDia from './components/input.vue'
