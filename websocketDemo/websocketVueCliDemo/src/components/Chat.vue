@@ -1,12 +1,11 @@
 <template>
   <div class="chat">
     <x-history :messages-history="messagesHistory"/>
-    <x-input :send-btn-hanlde="sendMsgHanlde.bind()"/>
+    <x-input :send-btn-hanlde="sendMsgHanlde"/>
   </div>
 </template>
 
 <script>
-import WebSocket from "ws";
 export default {
   name: 'chat',
   data () {
@@ -27,27 +26,17 @@ export default {
     }
   },
   created() {
-    this.ws = this.initChat();
-    // this.ws.on('message', (data) => {
-
-    //   let arr = this.messagesHistory;
-    //   this.messagesHistory = arr.push(data);
-    // })
-    // this.ws.on('open', () => {
-      
-    //   this.ws.send('this is first send');
-    // })
-    // this.ws.on()
   },
   beforeMount() {
-    console.log(this.ws);
+
   },
   mounted() {
-    console.log(this.ws);
+    
   },
   methods: {
-    initChat: () => new WebSocket("ws://10.8.97.26:8088"),
-    sendMsgHanlde: () => console.log(this.ws)
+    sendMsgHanlde: () => {
+      
+    }
   }
 }
 </script>

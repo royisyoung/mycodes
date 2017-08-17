@@ -82,33 +82,6 @@ devMiddleware.waitUntilValid(() => {
 
 var server = app.listen(port)
 
-//这里是自己写的websocket服务
-const httpServer = require('http').createServer(app);
-const WebSocket = require('ws');
-const url = require('url');
-const wss = new WebSocket.Server({server: httpServer});
-// console.log(httpServer);
-
-wss.on('connection', (wss, req) => {
-  const location = url.parse(req.url, true);
-  // You might use location.query.access_token to authenticate or share sessions
-  // or req.headers.cookie (see http://stackoverflow.com/a/16395220/151312)
-
-  wss.send('welcome!');
-
-  wss.on('message', (message) => {
-    console.log('received:%s', message);
-  })
-
-  ws.on('close', function(close) {  
-    console.log('close');
-  }); 
-})
-
-httpServer.listen(8088, () => {
-  console.log('ws Listening on %d', httpServer.address().port);
-})
-
 module.exports = {
   ready: readyPromise,
   close: () => {

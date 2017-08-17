@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import VueWebsocket from "vue-websocket";
+Vue.use(VueWebsocket);
+
 import Historya from './components/history.vue'
 import InputDia from './components/input.vue'
 
