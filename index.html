@@ -4,251 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
   <title>Document</title>
   <style>
-    *{margin:0; padding:0;box-sizing: border-box;}
-    input{vertical-align: -2px;}
-    /* 目录树样式 start*/
-    ul,li {
-      position: relative;
-      font-size: 14px;
+    .inp:checked + span{
+      color:aqua;
     }
-    ul li {
-      list-style: none;
-      margin-left:6px;
-      padding-left:15px;
-      border-left:1px dashed #333;
-    }
-    ul li p{
-      margin: 0;
-    }
-    .xTree-root{
-      margin-left:10px;
-      padding: 10px 0;
-    }
-    .xTree-root>li:last-child {
-      border:none;
-    }
-    li.hidden {
-      height: 22px;
-      overflow:hidden;
-    }
-    .xTree-children>li>.patch-dash {
-      width:12px;
-      border-top:1px dashed #333;
-      position:absolute;
-      left:0px;
-      top:10px;
-    }
-    .xTree-children>.patch-white {
-      z-index: 1;
-      height:10px;
-      border-left:1px solid #fff;
-      position:absolute;
-      left:6px;
-      bottom:0;
-    }
-    /* 目录树样式 end*/
-
-    /* 权限图标 start*/
-    .key-icon{
-      color:#6495ED;
-    }
-    li.disabled>p .key-icon {
-      color:#333;
-    }
-    /* 权限图标 end*/
-
-    /* 编辑按钮样式 start*/
-    .edit-btn{
-      color:#66CDAA;
-      cursor: pointer;
-    }
-    /* 编辑按钮样式 end*/
-    
-    /* 收缩按钮（+-）start */
-    p>.shrink-btn {
-      width:13px;
-      height:13px;
-      border:1px solid #222;
-      background: #fff;
-      position: absolute;
-      left: -7px;top:4px;
-      text-align: center;
-      cursor: pointer;
-    }
-    /* .xTree-children.hide p>.shrink-btn{
-      
-    } */
-    p>.shrink-btn span{
-      width:100%;
-      height:100%;
-      font-size: 20px;
-      line-height: 10px;
-      position: absolute;
-      left:-1px;top:-1px;
-    }
-    p>.shrink-btn span.plus-ico {
-      font-size: 18px;
-      display: none;
-    }
-    li.hidden p>span.plus-ico {
-      display: inline-block;
-    }
-    /* 收缩按钮（+-）end */
   </style>
 </head>
 <body>
-  <div id="xTree">
-    <h3>标题</h3>
-    <ul class="xTree-root">
-      <li class="disabled">
-        <p>
-          <span class="shrink-btn">
-            <span class="reduce-ico">-</span>
-            <span class="plus-ico">+</span>
-          </span>
-          <i class="fa fa-key key-icon"></i>
-          <span>Root</span>
-          <i class="fa fa-pencil edit-btn"></i>
-        </p>
-        <ul class="xTree-children">
-          <div class="patch-white"></div>
-          <li>
-            <div class="patch-dash"></div>
-            <p>
-              <span class="shrink-btn">
-                <span class="reduce-ico">-</span>
-                <span class="plus-ico">+</span>
-              </span>
-              <i class="fa fa-key key-icon"></i>
-              <span>二级</span>
-              <input type="checkbox">
-              <i class="fa fa-pencil edit-btn"></i>
-            </p>
-            <ul class="xTree-children">
-              <div class="patch-white"></div>
-              <li class="disabled">
-                <div class="patch-dash"></div>
-                <p>
-                  <span class="shrink-btn">
-                    <span class="reduce-ico">-</span>
-                    <span class="plus-ico">+</span>
-                  </span>
-                  <i class="fa fa-key key-icon"></i>
-                  <span>三级</span>
-                  <input type="checkbox">
-                  <i class="fa fa-pencil edit-btn"></i>
-                </p>
-              </li>
-              <li>
-                <div class="patch-dash"></div>
-                <p>
-                  <i class="fa fa-key key-icon"></i>
-                  <span>111</span>
-                  <input type="checkbox">
-                  <i class="fa fa-pencil edit-btn"></i>
-                </p>
-              </li>
-              <li class>
-                <div class="patch-dash"></div>
-                <p>
-                  <i class="fa fa-key key-icon"></i>
-                  <span>111</span>
-                  <input type="checkbox">
-                  <i class="fa fa-pencil edit-btn"></i>
-                </p>
-              </li>
-              <li>
-                <div class="patch-dash"></div>
-                <p>
-                  <i class="fa fa-key key-icon"></i>
-                  <span>111</span>
-                  <input type="checkbox">
-                  <i class="fa fa-pencil edit-btn"></i>
-                </p>
-              </li>
-            </ul>
-          </li>
-          <li>
-              <div class="patch-dash"></div>
-              <p>
-                <i class="fa fa-key key-icon"></i>
-                <span>111</span>
-                <input type="checkbox">
-                <i class="fa fa-pencil edit-btn"></i>
-              </p>
-            </li>
-            <li>
-              <div class="patch-dash"></div>
-              <p>
-                <i class="fa fa-key key-icon"></i>
-                <span>111</span>
-                <input type="checkbox">
-                <i class="fa fa-pencil edit-btn"></i>
-              </p>
-            </li>
-            <li>
-              <div class="patch-dash"></div>
-              <p>
-                <i class="fa fa-key key-icon"></i>
-                <span>111</span>
-                <input type="checkbox">
-                <i class="fa fa-pencil edit-btn"></i>
-              </p>
-            </li>
-        </ul>
-      </li>
-      <li class="hidden">
-        <p>
-          <span class="shrink-btn">
-            <span class="reduce-ico">-</span>
-            <span class="plus-ico">+</span>
-          </span>
-          <i class="fa fa-key key-icon"></i>
-          <span>二级</span>
-          <input type="checkbox">
-          <i class="fa fa-pencil edit-btn"></i>
-        </p>
-        <ul class="xTree-children">
-          <div class="patch-white"></div>
-          <li>
-            <div class="patch-dash"></div>
-            <p>
-              <span>三级</span>
-              <input type="checkbox">
-            </p>
-          </li>
-          <li>
-            <div class="patch-dash"></div>
-            <p>
-              <span>111</span>
-              <input type="checkbox">
-            </p>
-          </li>
-          <li>
-            <div class="patch-dash"></div>
-            <p>
-              <span>111</span>
-              <input type="checkbox">
-            </p>
-          </li>
-          <li>
-            <div class="patch-dash"></div>
-            <p>
-              <span>111</span>
-              <input type="checkbox">
-            </p>
-          </li>
-        </ul>
-      </li>
-    </ul>
+  <div id="app">
+    <p>
+      <input class="inp" type="checkbox" checked="checked">
+      <span>aaaa</span>
+    </p>
   </div>
   <script src="assets/jquery-3.2.1.min.js"></script>
-  <script src="assets/api.js"></script>
-  <script src="assets/common.js"></script>
   <script>
+    $('.inp').on('click', function(ev) {
+      if($(this).is(':checked')){
+        console.log('y');
+      }else{
+        console.log('n');
+      }
+    })
   </script>
 </body>
 </html>
