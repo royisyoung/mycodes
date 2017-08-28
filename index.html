@@ -6,27 +6,102 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
-    .inp:checked + span{
-      color:aqua;
-    }
+    *{margin:0;padding:0;box-sizing: border-box;}
   </style>
 </head>
 <body>
-  <div id="app">
-    <p>
-      <input class="inp" type="checkbox" checked="checked">
-      <span>aaaa</span>
-    </p>
-  </div>
+  <div id="#container"></div>
   <script src="assets/jquery-3.2.1.min.js"></script>
+  <script src="assets/kinetic-v5.1.0.min.js"></script>
   <script>
-    $('.inp').on('click', function(ev) {
-      if($(this).is(':checked')){
-        console.log('y');
-      }else{
-        console.log('n');
-      }
+    $(document).ready(function() {
+      var circles = [
+        {
+          coo: {x: 200, y: 150},
+          radius: 50
+        },
+        {
+          coo: {x: 260, y: 150},
+          radius: 50
+        },
+        {
+          coo: {x: 230, y: 200},
+          radius: 50
+        }
+      ];
+      
+      var stage = new Kinetic.Stage({
+        container: '#container',
+        width: 600,
+        height:400
+      })
+      var layer = new Kinetic.Layer();
+
+      circles.map(function(item, index){
+        var shape = new Kinetic.Circle({
+          shape: 'rect',
+          x: item.coo.x,
+          y: item.coo.y,
+          radius: item.radius,
+          fill: '#668B8B',
+          opacity: .4,
+          stroke: 'black',
+          sreokeWidth: 4,
+          rotationDeg : 20
+        })
+        layer.add(shape);
+        shape.on('mouseenter', function(ev) {
+          console.log(ev);
+          var tween = new Kinetic.Tween({
+            node: shape,
+            duration: .3,
+            radius: 53
+          });
+          tween.play();
+        });
+        shape.on('mouseleave', function(ev) {
+          var tween = new Kinetic.Tween({
+            node: shape,
+            duration: .3,
+            radius: 50
+          });
+          tween.play();
+        });
+      })
+      stage.on('mousemove', function(ev) {
+        var arr = complated(stage.getPointerPosition(), circles);
+        if(arr.length > 1){
+          switch(arr.length){
+            case 2: console.log('交两个');break;
+            case 3: console.log('交三个');break;
+            default: console.log('不知道了');
+          }
+        }
+      })
+      stage.add(layer);
+      stage.draw();
     })
+    /**
+     * circle{
+     *  coo: {x: 132, y: 134},
+     *  radius: 32
+     * }
+     * 
+     */
+
+    var complated = function(mouseCoo, circles) {
+      var arr = [];
+      circles.forEach(function(item, index){
+        var a = mouseCoo.x - item.coo.x;
+        var b = mouseCoo.y - item.coo.y;
+        var s = Math.sqrt(Math.pow(a, 2) + Math.pow(b,2));
+        // console.log(s, item.radius);
+        if(item.radius - s > 0){
+          arr.push(item);
+        }
+      });
+      return arr;
+    }
   </script>
 </body>
 </html>
