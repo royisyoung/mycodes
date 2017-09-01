@@ -39,7 +39,11 @@
 
       circles.map(function(item, index){
         var shape = new Kinetic.Circle({
-          shape: 'rect',
+          drawFunc: function() {
+            var context = this.getContext();
+            context.rect(item.coo.x, item.coo.y, item.radius, item.radius);
+            context.globalCompositeOperation = 'lighter';
+          },
           x: item.coo.x,
           y: item.coo.y,
           radius: item.radius,
@@ -47,8 +51,9 @@
           opacity: .4,
           stroke: 'black',
           sreokeWidth: 4,
-          rotationDeg : 20
+          rotationDeg: 20
         })
+        console.log(shape);
         layer.add(shape);
         shape.on('mouseenter', function(ev) {
           console.log(ev);
