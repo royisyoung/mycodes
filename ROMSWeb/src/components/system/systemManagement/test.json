@@ -1,0 +1,70 @@
+{
+  "code": 100000,
+  "msg": "成功",
+  "data": [
+    {
+      "g_token": "7fa80f418a76585cda2db550b368aa1b",
+      "g_userId": "1",
+      "g_time": "2017-09-21 18:24:18",
+      "id": 1,
+      "shopId": 1,
+      "gradeName": "一星",
+      "gradeNote": "一星",
+      "createDate": 1505725666000,
+      "createUser": 1,
+      "updateDate": null,
+      "updateUser": null,
+      "deleteFlag": 1,
+      "actionGradeDetailList": [
+        {
+          "g_token": null,
+          "g_userId": null,
+          "g_time": null,
+          "id": 3,
+          "gradeId": 1,
+          "targetId": 3,
+          "targetName": "活动客单价",
+          "valueMin": 0,
+          "valueMax": 0,
+          "createDate": 1505917553000,
+          "createUser": 1,
+          "updateDate": 1504494954000,
+          "updateUser": null,
+          "deleteFlag": 1
+        },
+        {
+          "g_token": null,
+          "g_userId": null,
+          "g_time": null,
+          "id": 2,
+          "gradeId": 1,
+          "targetId": 2,
+          "targetName": "活动转化率",
+          "valueMin": 0,
+          "valueMax": 0,
+          "createDate": 1505783626000,
+          "createUser": 0,
+          "updateDate": 1505886408000,
+          "updateUser": 0,
+          "deleteFlag": 1
+        },
+        {
+          "g_token": null,
+          "g_userId": null,
+          "g_time": null,
+          "id": 1,
+          "gradeId": 1,
+          "targetId": 1,
+          "targetName": "活动访客数",
+          "valueMin": 500000,
+          "valueMax": 0,
+          "createDate": 1505725702000,
+          "createUser": 1,
+          "updateDate": 1505886108000,
+          "updateUser": 0,
+          "deleteFlag": 1
+        }
+      ]
+    }
+  ]
+}
