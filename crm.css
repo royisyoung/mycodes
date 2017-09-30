@@ -1,0 +1,109 @@
+*{margin: 0; padding: 0;}
+img {
+  vertical-align: -3px;
+}
+input[type=radio] {
+  vertical-align: middle;
+}
+.clearfix:before,
+.clearfix:after{
+  display: table;
+  content: " ";
+}
+.clearfix:after{
+  clear: both;
+}
+.sellActivity {
+  padding: 20px;
+}
+.container {
+  border-radius: 15px;
+  box-shadow: 1px 1px 10px #616161;
+}
+.container-header {
+  height: 52px;
+  background-color: #cddbe8;
+  border-radius: 15px 15px 0 0;
+}
+.container-header .cteateBtn {
+  width: 140px;
+  height: 28px;
+  border-radius: 15px;
+  background-color: #57c059;
+  color: #fff;
+  text-align: center;
+  line-height: 28px;
+  float: left;
+  margin: 12px 0 0 72px;
+}
+#searchBox {
+  width: 180px;
+  height:36px;
+  border-radius: 20px;
+  background-color: #f8fdff;
+  color: #fff;
+  line-height: 36px;
+  float: right;
+  padding: 0 10px;
+  margin: 8px 87px 0 0;
+  position: relative;
+}
+#searchBox .searchBox-header {
+  padding-left: 5px;
+  padding-right: 2px;
+}
+#searchBox .searchBox-header .down-tip {
+  vertical-align: middle;
+  cursor: pointer;
+}
+#searchBox .searchBox-header .searchBtn {
+  cursor: pointer;
+}
+#searchBox .searchBox-header input {
+  width: 130px;
+  height: 20px;
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 15px;
+  line-height: 20px;
+  margin-left: 9px;
+}
+#searchBox .searchBox-main {
+  position: absolute;
+  top: 42px; left: 0;
+  width: 80%;
+  border: 1px solid #e4e4e4;
+  background: #ebebeb;
+  border-radius: 8px;
+  padding: 10px;
+  color: #939393;
+  box-shadow: 1px 1px 5px #616161;
+  font-size: 15px;
+  line-height: 22px;
+  display: none;
+}
+#searchBox .searchBox-main.active {
+  display: block;
+}
+#searchBox .searchBox-allSel {
+  padding: 3px 10px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+#searchBox .searchBox-selectList {
+  padding: 5px 10px 0px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+#searchBox .searchBox-selectList ul>li{
+  list-style: none;
+}
+.container-main {
+  min-height: 50px;
+  border-radius: 0 0 15px 15px;
+  padding: 40px;
+}
+.tableStyle {
+  width: 100%;
+}

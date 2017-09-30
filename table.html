@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./assets/jquery-3.2.1.min.js"></script>
+  <script src="./assets/bootstrap-table.min.js"></script>
+  <link rel="stylesheet" href="./assets/bootstrap-table.min.css">
+</head>
+<body>
+  <div id="table"></div>
+  <script>
+    var aa = $('#table').bootstrapTable({
+    columns: [{
+        field: 'id',
+        title: 'Item ID'
+    }, {
+        field: 'name',
+        title: 'Item Name'
+    }, {
+        field: 'price',
+        title: 'Item Price'
+    },{
+      field: 'operate',
+      title: '操作',
+      width: '80px',
+      // events: operateEvents,
+      formatter: operateFormatter
+    }],
+        data: [{
+            id: 1,
+            name: 'Item 1',
+            price: '$1',
+            operate: '123'
+        }, {
+            id: 2,
+            name: 'Item 2',
+            price: '$2',
+            operate: '123'
+        },]
+    });
+    function operateFormatter(value, row, index) {  
+        return [  
+            '<button id="btn_detail" type="button" class="aa btn-default bt-select">详情</button>',  
+        ].join('');  
+    }
+    $('#table').on('.aa', function (e) {
+      console.log(this);
+    });
+  </script>
+</body>
+</html>
