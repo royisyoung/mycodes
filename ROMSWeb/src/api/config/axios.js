@@ -119,12 +119,12 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 //   }
 // }
 //jq ajax
-// const baseUrl = 'http://10.88.26.114:8080/ROMSService' //develop
+const baseUrl = 'http://10.88.26.114:8080/ROMSService' //develop
 // const baseUrl = 'http://10.8.97.151:8080'; //王超
 // const baseUrl = 'http://10.8.53.141:8080/ROMSService'; //单文军
 //const baseUrl = 'http://10.8.51.77:8080/RomsService';//杨鹏飞
 // const baseUrl = 'http://10.8.97.141:8080/ROMSService';//郭东风
-const baseUrl = 'http://10.8.97.156:8080/ROMSService';//张志会
+// const baseUrl = 'http://10.8.97.156:8080/ROMSService';//张志会
 export default {
   get(url, params) {
     //获取session里面的token

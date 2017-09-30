@@ -316,7 +316,7 @@ export default {
         shopId: shopId
       }
       return new Promise((resolve, reject) => {
-        this.$api.plans.queryPlan(params)
+        this.$api.plans.queryYearPlan(params)
         .then(res => {
           // console.log(res.data)
           const arr = res.data;

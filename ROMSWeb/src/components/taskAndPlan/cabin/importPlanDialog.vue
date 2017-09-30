@@ -1,14 +1,14 @@
 <template>
   <r-dialog
     class='importPlan'
-    :title="title + typeName"
+    :title="title + typeTitle"
     :close-handle="closeHandle"
     :confirm-handle="confirmHandle">
-    <p class="importPlan-text">请下载{{typeName}}模板，按格式填写后再上传导入</p>
+    <p class="importPlan-text">请下载{{typeTitle}}模板，按格式填写后再上传导入</p>
     <div class="importPlan-content">
       <div class="box download">
         <span class="tip">1</span>
-        <a :href="typeUrl">{{typeName}}模板下载</a>
+        <a :href="typeUrl">{{typeTitle}}模板下载</a>
       </div>
       <div class="box upload">
         <input type="file" name="file" id="fileupLoad" @change="getFile">
@@ -43,35 +43,35 @@ export default {
   data() {
     return {
       title: '导入',
-      file: ''
+      file: '',
+      configList: [
+        {
+          id: 1,
+          type: 1,
+          title: '年度计划',
+          downloadApi: 'yearlyPlanTemplate',
+        },
+        {
+          id: 2,
+          type: 2,
+          title: '每日计划',
+          downloadApi: 'dailyPlanTemplate',
+        },
+        {
+          id: 2,
+          type: 2,
+          title: '活动计划',
+          downloadApi: 'activeTemplate',
+        }
+      ],
+      config: {}
     }
   },
+  created(){
+    const type = this.$props.type;
+    this.config = this.$_.find(this.configList, {type})
+  },
   mounted() {
-    // const obj = {
-    //     g_time: "2017-09-27 10:08:27",
-    //     g_token: "38c1924a9a1ec192ff0dbc55994528b4",
-    //     g_userId: "35",
-    //     shopId: this.$store.state.currentShop.id,
-    //     y: this.$store.state.date.year,
-    //     createUser: this.$store.state.userInfo.id,
-    //     filePath: this.file
-    //   }
-    // console.log(this.$api.plans.importYearlyPlanStr(obj))
-    // $('#fileupload').fileupload({
-    //     dataType: 'json',
-    //     url: 'http://10.8.97.156:8080/ROMSService/action/actionPlan/upLoadFile?g_userId=1&shopId=1',
-    //     // url: 'http://10.8.97.156:8080/ROMSService/action/actionPlan/upLoadFile',
-    //     add: function (e, data) {
-    //         data.context = $('#submit')
-    //             .click(function () {
-    //                 //data.context = $('<p/>').text('Uploading...').replaceAll($(this));
-    //                 data.submit();
-    //             });
-    //     },
-    //     done: function (e, data) {
-    //         data.context.text('Upload finished.');
-    //     }
-    // });
   },
   methods: {
     confirmHandle: function() {
@@ -88,33 +88,37 @@ export default {
       const file = this.file;
       if(!file) return;
       const formData = new FormData();
-      const type = this.$props.type;
       formData.append("file", file);
-
-      this.$api.active.importActivePlan(formData, {
+      const obj = {
         g_userId: 1,
         shopId: 1
-      }).then(res => console.log(res))
+      }
+      switch(this.config.type){
+        case 1: this.yearApi(formData, obj); break;
+        case 2: this.dailyApi(formData, obj); break;
+        case 3: this.activeApi(formData, obj); break;
+        default: console.log('error');
+      }
+    },
+    yearApi: function(formData, obj){
+      return this.$api.plans.importYearlyPlan(formData, obj)
+      .then(res => console.log(res))
+    },
+    dailyApi: function(formData, obj){
+      return this.$api.active.importDailyPlan(formData, obj)
+      .then(res => console.log(res))
+    },
+    activeApi: function(formData, obj){
+      return this.$api.active.importActivePlan(formData, obj)
+      .then(res => console.log(res))
     }
   },
   computed: {
-    typeName: function() {
-      const type = this.$props.type;
-      switch(type){
-        case 1: return '年度计划';
-        case 2: return '每日计划';
-        case 3: return '活动计划';
-        default: return 'error';
-      }
+    typeTitle: function() {
+      return this.config.title;
     },
     typeUrl: function() {
-      const type = this.$props.type;
-      switch(type) {
-        case 1: return this.$api.download.yearlyPlanTemplate();
-        case 2: return this.$api.download.dailyPlanTemplate();
-        case 3: return this.$api.download.activeTemplate();
-        default: return 'javascript:void(0);'
-      }
+      return this.$api.download[this.config.downloadApi]();
     }
   }
 }
