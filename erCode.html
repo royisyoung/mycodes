@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="txt"><input type="button" id="btn" value="生成">
+  <div id="cont"></div>
+  <script src="./jquery-3.2.1.min.js"></script>
+  <script>
+    window.onload = function() {
+      var btn = document.getElementById('btn');
+      btn.onclick = function() {
+        var cont = document.getElementById('cont');
+        var txt = document.getElementById('txt');
+        var val = txt.value;
+        if(!val) return;
+        var img = cont.childNodes[0];
+        if(!img) {
+          img = document.createElement('img');
+          cont.appendChild(img);
+        }
+        img.src = 'http://qr.liantu.com/api.php?text=' + encodeURIComponent(val);
+      }
+    }
+  </script>
+</body>
+</html>

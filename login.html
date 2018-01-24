@@ -9,36 +9,21 @@
 </head>
 <body>
   <div>
-    <a href="http://10.8.97.151:8080/plans/yearPlan/export">click</a>
     <button id="btn">send</button>
-    <!-- <a href="http://10.8.97.151:8080/file/upLoadOrDownLoad/downLoadExcel?fileName=年计划模板.xlsx">click</a> -->
-    <form method="post" enctype="multipart/form-data" action="http://10.8.97.151:8080/plans/yearPlan/import?g_time=2017-09-27 10:08:27&g_token=38c1924a9a1ec192ff0dbc55994528b4&g_userId=35&shopId=21&y=2017&createUser=35">
-      <input type="file" name="file" id="">
-      <input type="submit" value="submit" id="submit">
-    </form>
   </div>
   <script src="./assets/jquery-3.2.1.min.js"></script>
   <script>
     window.onload = function() {
       var btn = document.getElementById('btn');
-      var submit = document.getElementById('submit');
       btn.onclick = function() {
-        var obj = {
-          g_time: "2017-09-27 10:08:27",
-          g_token: "38c1924a9a1ec192ff0dbc55994528b4",
-          g_userId: "35",
-          shopId: 21,
-          y: 2017,
-          createUser: 35,
-          filePath: this.file
-        }
-        $.ajax({
-          type: 'post',
-          url: 'http://10.8.97.151:8080/plans/yearPlan/import'
+        const a = document.createElement('a');
+        a.setAttribute('href', 'http://10.8.97.16:8080/ROMSService/action/actionPlan/downLoadFile?userId=1&shopId=1089&g_token=908e6cf27c3cf6e7804c3e9efe9a588b&g_userId=1&g_time=2017-11-02 09:49:41');
+        // a.setAttribute('onclick', 'return false');
+        a.setAttribute('download', '历史计划.xls');
+        a.addEventListener('click', function(event){
+          console.log(event)
         })
-      }
-      submit.onclick = function(e) {
-        // e.preventDefault();
+        a.click();
       }
     };
   </script>
