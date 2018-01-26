@@ -8,7 +8,8 @@
 </head>
 <body>
   <div id="app">
-    {{ msg }}
+    <input type="text" v-model.number="num">
+    <div>{{ count }}</div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script>
@@ -16,9 +17,14 @@
       el: '#app',
       data: function() {
         return {
-          msg: 'hello vue!',
+          num: '',
         }
       },
+      computed: {
+        count: function() {
+          return this.num * 2 + 3;
+        }
+      }
     })
   </script>
 </body>

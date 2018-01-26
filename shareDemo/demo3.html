@@ -8,7 +8,8 @@
 </head>
 <body>
   <div id="app">
-    {{ msg }}
+    <div v-if="switch">{{ msg2 }}</div>
+    <div v-else>{{ msg }}</div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script>
@@ -16,9 +17,11 @@
       el: '#app',
       data: function() {
         return {
-          msg: 'hello vue!',
+          msg: '哈哈哈哈',
+          msg2: '嚯嚯嚯嚯',
+          switch: false
         }
-      },
+      }
     })
   </script>
 </body>

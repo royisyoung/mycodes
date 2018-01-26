@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(item, index) in list" :key="index" @click="clickHandle(item, index)">{{ item.name }}</li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          list: [
+            {
+              name: '111',
+              id: 1,
+            },{
+              name: '222',
+              id: 2,
+            },{
+              name: '333',
+              id: 3,
+            },{
+              name: '444',
+              id: 4,
+            },{
+              name: '555',
+              id: 5,
+            },
+          ]
+        }
+      },
+      methods: {
+        clickHandle: function(item, index) {
+          alert('我是' + item.name + ', 我的id是' + item.id + ', 我是第' + index + '个' );
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    这里是父组件
+    <input type="text" v-model="parentMsg">
+    <child></child>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    Vue.component('child', {
+      template: '<div><p>这里是子组件</p><button @click="clickHandle">click me!</botton></div>',
+      methods: {
+        clickHandle: function() {
+          bus.$emit('msg', '我是从父组件哪里来的');
+        }
+      }
+    })
+    var bus = new Vue()
+    var app = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          parentMsg: '',
+        }
+      },
+      mounted() {
+        bus.$on('msg', function (data) {
+          alert(data);
+        })
+      }
+    })
+  </script>
+</body>
+</html>

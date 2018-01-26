@@ -8,7 +8,8 @@
 </head>
 <body>
   <div id="app">
-    {{ msg }}
+    <!-- <div>{{ msg }}</div> -->
+    <div>{{ msgAdd }}</div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script>
@@ -16,9 +17,14 @@
       el: '#app',
       data: function() {
         return {
-          msg: 'hello vue!',
+          msg: '哟嚯嚯嚯嚯'
         }
       },
+      computed: {
+        msgAdd: function() {
+          return this.msg + '嘻嘻嘻嘻嘻'
+        }
+      }
     })
   </script>
 </body>

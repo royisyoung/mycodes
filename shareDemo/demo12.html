@@ -8,17 +8,20 @@
 </head>
 <body>
   <div id="app">
-    {{ msg }}
+    <my-component></my-component>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script>
-    var app = new Vue({
-      el: '#app',
+    Vue.component('my-component', {
+      template: '<span>{{ this.msg }} </span>',
       data: function() {
         return {
-          msg: 'hello vue!',
+          msg: 'hello'
         }
-      },
+      }
+    })
+    var app = new Vue({
+      el: '#app',
     })
   </script>
 </body>

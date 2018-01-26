@@ -8,7 +8,8 @@
 </head>
 <body>
   <div id="app">
-    {{ msg }}
+    <input type="text" v-model="parentMsg">
+    <child v-bind:my-message="parentMsg"></child>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script>
@@ -16,9 +17,13 @@
       el: '#app',
       data: function() {
         return {
-          msg: 'hello vue!',
+          parentMsg: '',
         }
       },
+    })
+    Vue.component('child', {
+      props: ['myMessage'],
+      template: '<span>{{ myMessage }}</span>'
     })
   </script>
 </body>

@@ -8,7 +8,9 @@
 </head>
 <body>
   <div id="app">
-    {{ msg }}
+    <ul>
+      <li v-for="(item, key, index) in list" :key="index + key" :title="key">{{ item.name }}</li>
+    </ul>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script>
@@ -16,9 +18,22 @@
       el: '#app',
       data: function() {
         return {
-          msg: 'hello vue!',
+          list: {
+            101: {
+              name: '111',
+            },
+            202: {
+              name: '333',
+            },
+            303: {
+              name: '333',
+            },
+            404: {
+              name: '444',
+            },
+          }
         }
-      },
+      }
     })
   </script>
 </body>
