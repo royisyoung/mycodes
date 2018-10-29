@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(red), to(blue));
+    }
+    .box{
+      width: 500px;
+      height: 150px;
+      /* background-color: aqua; */
+      background-image: url('./imgs/pic_03.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* border: 5px solid; */
+      /* border-image: -webkit-linear-gradient( 90deg, red, blue) 30 30;
+      border-image: -moz-linear-gradient( 90deg, red, blue) 30 30;
+      border-image: linear-gradient( 90deg, red, blue) 30 30; */
+      color: #fff;
+      font-weight: bold;
+      font-size: 40px;
+      /* -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; */
+      position: relative;
+    }
+    .box::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 30px;
+      right: 0;
+      border-radius: 100%;
+      transform: translateX(50%);
+      background-color: #fff;
+      -webkit-background-clip: content-box;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" text="字体颜色渐变">
+    <!-- 啦啦啦啦啦啦绿 -->
+  </div>
+</body>
+</html>

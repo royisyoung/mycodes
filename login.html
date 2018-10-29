@@ -9,23 +9,25 @@
 </head>
 <body>
   <div>
-    <button id="btn">send</button>
+    <a href="">
+      <input style="display: inline-block;" type="file">
+    </a>
   </div>
   <script src="./assets/jquery-3.2.1.min.js"></script>
   <script>
-    window.onload = function() {
-      var btn = document.getElementById('btn');
-      btn.onclick = function() {
-        const a = document.createElement('a');
-        a.setAttribute('href', 'http://10.8.97.16:8080/ROMSService/action/actionPlan/downLoadFile?userId=1&shopId=1089&g_token=908e6cf27c3cf6e7804c3e9efe9a588b&g_userId=1&g_time=2017-11-02 09:49:41');
-        // a.setAttribute('onclick', 'return false');
-        a.setAttribute('download', '历史计划.xls');
-        a.addEventListener('click', function(event){
-          console.log(event)
-        })
-        a.click();
-      }
-    };
+    // window.onload = function() {
+    //   var btn = document.getElementById('btn');
+    //   btn.onclick = function() {
+    //     const a = document.createElement('a');
+    //     a.setAttribute('href', 'http://10.8.97.16:8080/ROMSService/action/actionPlan/downLoadFile?userId=1&shopId=1089&g_token=908e6cf27c3cf6e7804c3e9efe9a588b&g_userId=1&g_time=2017-11-02 09:49:41');
+    //     // a.setAttribute('onclick', 'return false');
+    //     a.setAttribute('download', '历史计划.xls');
+    //     a.addEventListener('click', function(event){
+    //       console.log(event)
+    //     })
+    //     a.click();
+    //   }
+    // };
   </script>
 </body>
 </html>

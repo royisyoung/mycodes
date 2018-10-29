@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const dd = new Date('2019/2/1');
+    for(let i = 0; i < 31; i++){
+      dd.setDate(i + 1);
+      // dd.setMonth(1);
+      console.log(dd + '_' + weekNum(dd));
+    }
+    for(let i = 0; i < 12; i++) {
+      console.log(monthDays(2019, i + 1));
+    }
+    // 一个月有多少天
+    function monthDays(y, m) {
+      const d = new Date(y, m, 0);
+      return d.getDate();
+    }
+    function weekNum(date) {
+      const y = date.getFullYear();
+      const m = date.getMonth();
+      const d = date.getDate();
+      let total = 0;
+      for(let i = 0; i < m; i++) {
+        total += monthDays(y, i + 1);
+      }
+      total += d;
+      const dd = new Date(y, m);
+      dd.setDate(1);
+      dd.setMonth(0);
+      const firstWeek = dd.getDay() ? 8 - dd.getDay() : 1
+      return (Math.ceil((total - firstWeek) / 7) + 1) + ' ' + (total - firstWeek) + ' ' + total;
+    }
+</script>
+</body>
+</html>
