@@ -2,7 +2,7 @@
   "name": "romsweb-2.0",
   "version": "1.0.0",
   "description": "roms web front end",
-  "author": "yang.xu1 <yang.xu1@baozun.com>",
+  "author": "yang.xu1",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

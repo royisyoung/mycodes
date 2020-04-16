@@ -2,7 +2,7 @@
   "name": "chatroom",
   "version": "1.0.0",
   "description": "websocket+vue-cli",
-  "author": "徐阳 <yang.xu1@baozun.com>",
+  "author": "徐阳",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

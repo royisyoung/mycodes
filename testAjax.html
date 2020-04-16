@@ -14,8 +14,6 @@
   <script src="./jquery-3.2.1.min.js"></script>
   <script>
     window.onload = function() {
-      var url = 'http://test.romsweb.baozun.com:8061/index?g_token=638af5adf213ad7714ce533c16e35479&g_userId=1&g_time=2018-01-18%2009%3A56%3A53&Shops=7';
-      // var url = 'http://10.8.97.16:8080/ROMSService/action/actionPlan/downLoadFile?error';
       var str = url.split('?')[1];
       if(str.indexOf('error') === -1) {
         var res = decodeURIComponent(str);
